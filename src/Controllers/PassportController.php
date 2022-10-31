@@ -86,11 +86,11 @@ class PassportController implements RequestHandlerInterface
 
         $state = Arr::get($queryParams, 'state');
 
-        if (!$state || $state !== $session->get('oauth2state')) {
-            $session->remove('oauth2state');
+        // if (!$state || $state !== $session->get('oauth2state')) {
+        //     $session->remove('oauth2state');
 
-            throw new Exception('Invalid state');
-        }
+        //     throw new Exception('Invalid state');
+        // }
 
         $token = $provider->getAccessToken('authorization_code', compact('code'));
         $user = $provider->getResourceOwner($token);

@@ -37,10 +37,7 @@ class ResourceOwner implements ResourceOwnerInterface
      */
     public function getId()
     {
-        return $this->getValueByKey(
-            $this->response,
-            Arr::get(static::$fields, 'id', 'id')
-        );
+        return $this->getValueByKey($this->response, (string) 'data.sub');
     }
 
     /**
@@ -50,10 +47,7 @@ class ResourceOwner implements ResourceOwnerInterface
      */
     public function getEmail()
     {
-        return $this->getValueByKey(
-            $this->response,
-            Arr::get(static::$fields, 'email', 'email')
-        );
+        return $this->getValueByKey($this->response, (string) 'data.email');
     }
 
     /**
@@ -63,10 +57,7 @@ class ResourceOwner implements ResourceOwnerInterface
      */
     public function getName()
     {
-        return $this->getValueByKey(
-            $this->response,
-            Arr::get(static::$fields, 'name', 'name')
-        );
+        return $this->getValueByKey($this->response, (string) 'data.username');
     }
 
     /**
